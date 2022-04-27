@@ -1,0 +1,21 @@
+<nav class="navbar bg-dark">
+    <h2 class="text-primary">
+      <a [routerLink]="['']">Balance</a>
+    </h2>
+  
+    <ul>
+      <li>
+        <a [routerLink]="['/balance', 'Income']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Income</a>
+      </li>
+      <li>
+        <a [routerLink]="['/balance', 'Expense']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Expense</a>
+      </li>
+      <li>
+        <a [routerLink]="['/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Category</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <section class="container">
+    <router-outlet></router-outlet>
+  </section>

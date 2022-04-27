@@ -1,0 +1,117 @@
+<h2>Simiple Form</h2>
+
+<!-- Form -->
+<div class="inline-cards">
+  <div class="card">
+    <div class="card-header">
+      <h4>Form</h4>
+    </div>
+    <div class="card-body">
+      <form #form="ngForm" class="form" (ngSubmit)="addStudent()">
+          <div class="form-group">
+              <input #nameInput="ngModel" type="text" placeholder="Name" required
+              name="name" [(ngModel)]="student.name" >
+              <span *ngIf="nameInput.invalid && (nameInput.touched || nameInput.dirty)" class="form-text-danger">Enter Student Name</span>
+          </div>
+          <div ngModelGroup="student.contact">
+            <div class="form-group">
+                <input #phoneInput="ngModel" type="tel" placeholder="Phone" required phoneValidator
+                name="phone" [(ngModel)]="student.contact.phone" >
+                <span class="form-text-danger"
+                *ngIf="phoneInput.invalid && (phoneInput.touched || phoneInput.dirty)">
+                {{ phoneInput.errors!['required'] ? 'Enter Phone Number': 'Phonenumber format is incorrect' }}
+              </span>
+            </div>
+            <div class="form-group">
+                <input #emailInput="ngModel" type="email" placeholder="Email" email required
+                name="email" [(ngModel)]="student.contact.email" >
+                <span *ngIf="emailInput.invalid && (emailInput.touched || emailInput.dirty)" class="form-text-danger">
+                  {{ emailInput.errors!['required'] ? 
+                  'Enter Email Address': 'Email format is incorrect' }}
+                </span>
+            </div>
+          </div>
+          
+        <div class="form-group">
+            <select name="course" [(ngModel)]="student.course">
+                <option value="">-Select-</option>
+                <option value="typescript">TypeScript</option>
+                <option value="javascript">JavaScript</option>
+                <option value="angular">Angular</option>
+            </select>
+        </div>
+        <div class="form-group mx-1">
+            <input id="male" type="radio" 
+            value="male" name="gender" [(ngModel)]="student.gender">
+            <label class="mr-2" for="male">Male</label>
+
+            <input id="female" type="radio" 
+            value="female" name="gender" [(ngModel)]="student.gender">
+            <label for="female">Female</label>
+        </div>
+        <div class="form-group d-flex mx-1" 
+        ngModelGroup="student.interest">
+            <div *ngFor="let item of getInterests()">
+                <input [id]="item" type="checkbox" 
+                [name]="item" 
+                [(ngModel)]="student.interest[item]">
+                <label class="mr-2" [for]="item">{{ item }}                  
+                </label>
+            </div>
+        </div>
+        <div class="form-group mx-1">
+            <input type="checkbox" id="type"
+            name="type" [(ngModel)]="student.type">
+            <label for="type">New Student</label>
+        </div>
+        <div class="form-group">
+          <button type="reset" class="btn btn-light">Reset</button>
+          <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (reset)="true">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+<!-- Form Value -->
+  <div class="card">
+    <div class="card-header">
+      <h4>Form Value</h4>
+    </div>
+    <div class="card-body">
+      <pre>{{ student | json }}</pre>
+    </div>
+  </div>
+</div>
+
+
+<!-- Data List -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Course</th>
+      <th>Gender</th>
+      <th>Type</th>
+      <th>Interests</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of getAllStudent()">
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.contact.phone }}</td>
+      <td>{{ item.contact.email }}</td>
+      <td>{{ item.course }}</td>
+      <td>{{ item.gender }}</td>
+      <td>{{ item.type ? 'New': 'Old' }}</td>
+      <td>{{ getInterest(item) }}</td>
+      <td>
+        <button (click)="editStudent(item)" class="btn btn-success">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

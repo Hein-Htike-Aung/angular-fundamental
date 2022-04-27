@@ -1,0 +1,116 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+body {
+  line-height: 1.2rem;
+  font-size: 16px;
+}
+
+.container {
+  margin: auto;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  padding: 0 10rem;
+  overflow: hidden;
+}
+
+.home-bg {
+  background: url("assets/images/kepler.png") no-repeat center/cover;
+  height: 100vh;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  padding: 1.2rem 10rem;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  opacity: 0.9;
+
+  ul {
+    display: flex;
+
+    li {
+      margin: 0 0.8rem;
+    }
+
+    a {
+      color: #fff;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    .active {
+      color: $primary-color;
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    display: none;
+    @include set-background-color($dark-color);
+    li {
+      padding: 0 1.2rem;
+      margin: 0.7rem 0;
+    }
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+.sign-in {
+  margin: auto;
+  top: 0;
+  left: 0;
+  width: 40%;
+
+  .card {
+    padding: 3rem;
+    border: 1px solid #ccc;
+
+    &-footer {
+      button {
+        display: block;
+        width: 50%;
+        margin: 0;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 2rem;
+}

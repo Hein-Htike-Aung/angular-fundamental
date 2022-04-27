@@ -1,0 +1,62 @@
+.form {
+  &-group {
+    margin: 1rem 0;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='password'],
+  input[type='number'],
+  input[type='date'],
+  input[type='time'],
+  select,
+  textarea {
+    display: block;
+    padding: 0.5rem 0.9rem;
+    width: 100%;
+    border: 1px solid #888;
+    font-size: 16px;
+    margin-top: 1rem;
+
+    &:focus-visible {
+      outline: 1px solid $primary-color;
+    }
+  }
+
+  .d-flex {
+    gap: 1rem;
+    .form-group {
+      width: 100%
+    }
+  }
+}
+
+.form-inline {
+  @extend .form;
+  display: flex;
+  margin: 1rem 0;
+
+  .form-group {
+    margin-right: 1rem;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='password'],
+  input[type='number'],
+  input[type='date'],
+  select,
+  textarea {
+    width: 200px;
+  }
+
+  input[type='date'] {
+    padding: 0.3rem 0.9rem;
+  }
+
+  & :last-child {
+    margin-left: auto;
+  }
+}

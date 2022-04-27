@@ -1,0 +1,27 @@
+<h2 class="text-primary">Balance Report</h2>
+<search-bar (onSearch)="search($event)" (onSearchAll)="searchAll($event)"></search-bar>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Employee</th>
+            <th>Income</th>
+            <th>Expense</th>
+        </tr>
+    </thead>
+   <tbody>
+       <tr *ngFor="let item of list"> 
+           <td>{{ item.id }}</td>
+           <td>{{ item.applyDate }}</td>
+           <td>{{ item.category.type }}</td>
+           <td>{{ item.category.name }}</td>
+           <td>{{ item.employee }}</td>
+           <td class="text-primary">{{ (item.category.type === 'Income' ? '+' + item.total:'-') }}</td>
+           <td class="text-danger">{{ (item.category.type === 'Expense' ? '-' + item.total:'-') }}</td>
+       </tr>
+   </tbody>
+</table>

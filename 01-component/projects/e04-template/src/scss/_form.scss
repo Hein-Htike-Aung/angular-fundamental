@@ -1,0 +1,51 @@
+@import 'config';
+
+.form {
+    &-group {
+        margin: 1.5rem 0;
+    }
+
+    &-text {
+        display: block;
+        margin-top: 0.4rem;
+        color: #888;
+    }
+
+    &-text-danger {
+        display: block;
+        font-size: 0.9rem;
+        color: $danger-color;
+    }
+
+    input[type='text'],
+    input[type='tel'],
+    input[type='password'],
+    input[type='email'],
+    input[type='number'],
+    select,
+    textarea{
+        display: block;
+        width: 100%;
+        border: 1px solid #888;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 0.4rem;
+
+        &:focus-visible {
+            border: $primary-color 1px solid;
+        }
+    }
+
+    .input-with-icon {
+        position: relative;
+
+        i{
+            position: absolute;
+            right: 15px;
+            top: 10px;            
+        }
+        
+    }
+
+
+}

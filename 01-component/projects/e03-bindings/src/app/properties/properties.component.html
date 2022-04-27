@@ -1,0 +1,52 @@
+<h1>Property Binding</h1>
+
+<!-- DOM Binding -->
+<div class="card">
+  <h3 class="card-header">DOM Property</h3>
+  <div class="card-body">
+    <button (click)="switchBtnState()" class="btn btn-primary">Trigger</button>
+    <button [hidden]="btnShow" class="btn btn-danger">Target</button>
+    <div class="line"></div>
+    <input type="text" #inputValue class="mr-2" placeholder="Enter Text" 
+    (input)="value = inputValue.value">
+    <input [value]="value" placeholder="Text will appears here.">
+  </div>
+</div>
+
+<!-- Component Binding -->
+<div class="card">
+  <h3 class="card-header">Component Property (Parent and Child)</h3>
+  <div class="card-body components">
+    <!-- Input from Parent -->
+    <div class="form form-mini">
+      <input #keywordValue type="text" class="mr-1" />
+      <button (click)="setKeyword(keywordValue.value)" class="btn btn-light">
+        Add
+      </button>
+    </div>
+
+    <!-- Child Component -->
+    <div>
+      <app-prop-child [keyword]="parentValue"></app-prop-child>
+    </div>
+  </div>
+</div>
+
+<!-- Directive Binding -->
+<div class="card">
+  <h3 class="card-header">Directive Property</h3>
+  <div class="card-body components">
+    <div class="form form-mini">
+      <select
+        style="width: 250px"
+        #colorSelector
+        (change)="background = colorSelector.value">
+        <option value="">-Select-</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="Blue">Blue</option>
+      </select>
+    </div>
+    <div [backgroundColor]="background" class="border"></div>
+  </div>
+</div>

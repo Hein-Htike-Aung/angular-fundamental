@@ -1,0 +1,23 @@
+<nav class="navbar bg-dark">
+  <h3 class="text-primary">Student Registration</h3>
+
+  <ul>
+
+    <li class="dropdown">
+      <a [routerLink]="['/master']" routerLinkActive="active" >Master <i class="fa fa-caret-down"></i></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a [routerLink]="['/master/course']" routerLinkActive="active" >Course</a>
+        </li>
+        <li>
+          <a [routerLink]="['/master/class']" routerLinkActive="active" >Classes</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<section class="container">
+  <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,61 @@
+<h2 class="text-primary">{{ title }}</h2>
+
+
+<form [formGroup]="form" class="form-mini">
+
+    <!-- Balance -->
+    <div formGroupName="balance">
+        <div class="form-group">
+            <select formControlName="category">
+                <option value="">Category</option>
+                <option *ngFor="let c of categories" [ngValue]="c">{{ c.name }}</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <input type="date" formControlName="applyDate">
+        </div>
+    
+        <div class="form-group">
+            <input type="text" placeholder="Employee Name" formControlName="employee">
+        </div>
+
+        <div class="form-group">
+            <input type="text" readonly [ngClass]="type == 'Income'? 'bg-success':'bg-danger'" formControlName="total">
+        </div>
+    
+    </div>
+
+    <!-- Balance Details -->
+    <h4 class="text-primary">Details</h4>
+
+    <button (click)="addDetails()" class="btn btn-success form-button">Add Details</button>
+    <button type="button" (click)="save()" class="btn btn-primary">Save</button>
+    
+    <div formArrayName="balanceDetails">
+        <div class="balance-details-inline-inputs" *ngFor="let item of balanceDetails.controls; index as i" [formGroupName]="i">
+
+            <div class="form-group">
+                <input formControlName="item" type="text" placeholder="Item Name">
+            </div>
+    
+            <div class="form-group">
+                <input formControlName="quantity" type="number" placeholder="Quantity">
+            </div>
+    
+            <div class="form-group">
+                <input formControlName="price" type="number" placeholder="Price">
+            </div>
+    
+            <div class="form-group">
+                <input formControlName="remark" type="text" placeholder="Remark">
+            </div>
+    
+            <div class="form-group">
+                <button class="btn btn-danger" (click)="removeDetails(i)">Delete</button>
+            </div>
+    
+        </div>
+    </div>
+
+</form>

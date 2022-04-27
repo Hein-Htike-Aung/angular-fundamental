@@ -1,0 +1,173 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.container {
+  padding: 0 10rem;
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.active {
+  color: $primary-color !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  padding: 1.2rem 10rem;
+  z-index: 1;
+  position: relative;
+
+  ul {
+    display: flex;
+
+    li {
+      cursor: pointer;
+    }
+
+    a {
+      color: #ffff;
+      margin: 0 0.8rem;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    @include set-background($dark-color);
+    display: none;
+    box-shadow: 2px 2px 2px #333;
+
+    li {
+      margin: 1rem 0;
+    }
+
+  }
+
+  .dropdown-menu:hover .nav-dropdown {
+    display: block;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  background: #1b1b1b;
+  width: 250px;
+  color: #fff;
+}
+
+.sidebar-container {
+  margin-top: 6rem;
+  padding-left: 300px;
+  padding-right: 100px;
+}
+
+.list {
+  width: 300px;
+
+  span {
+    display: block;
+    border: 1px solid #888;
+    border-bottom: none;
+    padding: 1rem;
+    font-size: 16px;
+    cursor: pointer;
+
+    a{
+      text-decoration: none;
+    }
+
+    &:hover {
+      @include set-background($dark-color);
+    }
+
+    &.active {
+      @include set-background($dark-color);
+    }
+  }
+
+  & :last-child {
+    border-bottom: 1px solid #888;
+  }
+
+}
+
+.params-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 5rem;
+  margin: 2rem 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.4);
+
+  &-content {
+    background: #fff;
+    width: 50%;
+    margin: auto;
+  }
+
+  &-header {
+    padding: 16px 16px;
+    color: #fff;
+    @include set-background($primary-color);
+  }
+
+  &-body {
+    padding: 16px 16px;
+  }
+
+  &-footer {
+    padding: 16px 16px;
+  }
+
+  .close {
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      color: #333;
+    }
+  }
+}

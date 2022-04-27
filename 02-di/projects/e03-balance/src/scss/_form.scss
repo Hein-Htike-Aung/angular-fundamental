@@ -1,0 +1,92 @@
+@import "config";
+
+.form {
+  &-group {
+    margin: 2rem 0;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="phone"],
+  input[type="password"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    padding: 0.5rem 0.5rem;
+    font-size: 15px;
+    width: 100%;
+    border: 1px solid, #888;
+    outline: none;
+
+    &:focus-visible {
+      outline: 1px solid $primary-color;
+    }
+  }
+}
+
+.form-mini {
+  @extend .form;
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="phone"],
+  input[type="password"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 50%;
+  }
+
+}
+
+.balance-details-inline-inputs {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  input {
+    width: 100%!important;
+  }
+}
+
+.form-inline {
+  display: flex;
+  justify-content: flex-start;
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="phone"],
+  input[type="password"],
+  input[type="date"],
+  select,
+  textarea {
+    margin-right: 1rem;
+    width: 220px;
+    padding: 0.5rem 0.5rem;
+    font-size: 15px;
+    border: 1px solid, #888;
+    outline: none;
+
+    &:focus-visible {
+      outline: 1px solid $primary-color;
+    }
+  }
+
+  input[type="date"] {
+    margin-right: 1rem;
+    width: 220px;
+    padding: 0.4rem 0.5rem;
+    font-size: 15px;
+    border: 1px solid, #888;
+    outline: none;
+
+    &:focus-visible {
+      outline: 1px solid $primary-color;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+
+<!-- Event Binding -->
+<div class="events">
+  <div class="card" >
+    <div class="card-header">
+      <h3>Data From</h3>
+    </div>
+    <div id="from" class="card-body" 
+        (dragover)="$event.preventDefault()" 
+        (drop)="drop($event)">
+      <ul>
+        <li (dragstart)="drag(item)" draggable="true" *ngFor="let item of from">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="card">
+    <div class="card-header">
+      <h3>Data Tp</h3>
+    </div>
+    <div class="card-body" id="to"
+        (dragover)="$event.preventDefault()"
+        (drop)="drop($event)">
+      <ul>
+        <li draggable="true" (dragstart)="drag(item)" *ngFor="let item of to">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<nav class="navbar bg-dark">
+  <h2 class="text-primary">Multi Outlet</h2>
+
+  <ul>
+
+    <li>
+      <a [routerLink]="pageOne" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Page One</a>
+    </li>
+
+    <li>
+      <a [routerLink]="pageTwo" routerLinkActive="active">Page Two</a>
+    </li>
+
+  </ul>
+
+</nav>
+
+<div class="sidebar">
+  <router-outlet name="sideMenu"></router-outlet>
+</div>
+
+<div class="sidebar-container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,174 @@
+@import "config";
+
+.btn {
+  display: inline-block;
+  margin: 0 0.5rem;
+  margin-top: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &.btn-primary {
+    @include set-background-color($primary-color);
+
+    &:hover {
+      outline: 1px solid $primary-color;
+    }
+  }
+  &.btn-light {
+    @include set-background-color($light-color);
+
+    &:hover {
+      @include set-background-color($dark-color);
+    }
+  }
+  &.btn-dark {
+    @include set-background-color($dark-color);
+
+    &:hover {
+      @include set-background-color($light-color);
+    }
+  }
+  &.btn-success {
+    @include set-background-color($success-color);
+
+    &:hover {
+      outline: 1px solid $success-color;
+    }
+  }
+  &.btn-danger {
+    @include set-background-color($danger-color);
+
+    &:hover {
+      outline: 1px solid $danger-color;
+    }
+  }
+
+  &-big {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+
+.upload-btn {
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+  width: 200px;
+}
+
+.table {
+  th,
+  td {
+    padding: 1rem;
+  }
+
+  th {
+    @include set-background-color($light-color);
+  }
+}
+
+.text {
+  &-primary {
+    color: $primary-color;
+  }
+  &-light {
+    color: $light-color;
+  }
+  &-dark {
+    color: $dark-color;
+  }
+  &-success {
+    color: $success-color;
+  }
+  &-danger {
+    color: $danger-color;
+  }
+}
+
+.bg {
+  &-primary {
+    @include set-background-color($primary-color);
+  }
+  &-light {
+    @include set-background-color($light-color);
+  }
+  &-dark {
+    @include set-background-color($dark-color);
+  }
+  &-success {
+    @include set-background-color($success-color);
+  }
+  &-danger {
+    @include set-background-color($danger-color);
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  padding-top: 100px;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.4);
+
+  &-content {
+    background: #fff;
+    margin: auto;
+    width: 50%;
+  }
+
+  &-header {
+    @include set-background-color($primary-color);
+    padding: 1rem;
+
+    .close {
+      float: right;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+  &-body {
+    padding: 0 1rem;
+  }
+  &-footer {
+    padding: 1rem;
+    padding-top: 0;
+  }
+}
+
+.list {
+  li {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      @include set-background-color($dark-color);
+    }
+  }
+
+}
+
+.d-none {
+  display: none!important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.badge {
+  padding: 2rem;
+}

@@ -1,0 +1,21 @@
+<h2 class="text-primary">Passing Parameter</h2>
+
+<div class="params-grid">
+    
+    <div class="list">
+        <span [routerLink]="['/passing-params/path', 10, 'test', 'pathParam']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Path Params
+        </span>
+        <span [routerLink]="['matrix', {data: '100', color: 'blue'}]" routerLinkActive="active">
+            Matrix Params
+        </span>
+        <span [routerLink]="['query']" [queryParams]="{data: '200', color: 'red'}" routerLinkActive="active">
+            Query Params
+        </span>
+    </div>
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

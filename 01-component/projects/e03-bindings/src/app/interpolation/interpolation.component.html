@@ -1,0 +1,31 @@
+<!-- Binding DOM innerText Property with component property -->
+<h1 [innerText]="model.title"></h1>
+
+<img src="/assets/img/{{ model.image }}" class="mx-3" />
+
+<p>Method call {{ getDate().toLocaleString() }}</p>
+
+<pre>{{ data.id ? (data | json) : "No-data" }}</pre>
+
+<p>Math Operation {{ data.id ? data.id + 100 : "" }}</p>
+
+<p>Method Invocation {{ times(4, 4) }}</p>
+
+<ul>
+  <li *ngFor="let language of languages">ngFor {{ language }}</li>
+</ul>
+
+<p>selector -> {{ paragraph.innerText }}</p>
+
+<p #paragraph [hidden]="hidden">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, facere?
+</p>
+
+<div class="line"></div>
+
+<form action="#" class="form form-mini">
+  <div class="form-group">
+    <input #keyword (keyup)="(0)" type="text" />
+    <span class="form-text">{{ keyword.value }}</span>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+
+<nav class="navbar bg-dark"> 
+  <h2><a href="">Pipes And Directive</a></h2>
+
+  <ul>
+    <li>
+      <a [routerLink]="['/pipes']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pipes</a>
+    </li>
+    <li>
+      <a [routerLink]="['/directives']" routerLinkActive="active">Directives</a>
+    </li>
+    <li>
+      <a [routerLink]="['/cus-directives']" routerLinkActive="active">Cus-Directives</a>
+    </li>
+  </ul>
+</nav>
+
+
+<section class="container">
+  <router-outlet></router-outlet>
+</section>

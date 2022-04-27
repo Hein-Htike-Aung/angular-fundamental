@@ -1,0 +1,29 @@
+body {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.logs {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}

@@ -1,0 +1,17 @@
+
+<nav class="side-bar">
+    <h3 class="title">Injection</h3>
+
+    <ul>
+        <li [routerLink]="['/member']" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">
+            <a>Member Crud</a>
+        </li>
+        <li [routerLink]="['/member', 0, 'edit']" routerLinkActive="active">
+            <a>Add New Member</a>
+        </li>
+    </ul>
+</nav>
+
+<section class="container">
+    <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,20 @@
+<h2 class="text-primary">Retrieve Data From Route</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of people">
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>
+                <button [routerLink]="['/resolve/to', p.id]" class="btn btn-success">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

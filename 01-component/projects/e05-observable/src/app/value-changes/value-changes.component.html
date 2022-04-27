@@ -1,0 +1,21 @@
+<h2 class="text-primary">Value Changes</h2>
+
+<form [formGroup]="form" class="form">
+    <div class="form-inline">
+
+        <div class="form-group">
+            <select formControlName="category">
+                <option value="">Category</option>
+                <option *ngFor="let item of categories" [value]="item">{{ item }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <select formControlName="product">
+                <option value="">Product</option>
+                <option *ngFor="let item of products" [ngValue]="item">{{ item.name }}</option>
+            </select>
+        </div>
+
+    </div>
+</form>

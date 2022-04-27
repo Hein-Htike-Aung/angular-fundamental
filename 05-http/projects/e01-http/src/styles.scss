@@ -1,0 +1,72 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+body {
+  line-height: 1.2rem;
+  font-size: 16px;
+}
+
+.container {
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  padding: 0 10rem;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  padding: 1.2rem 10rem;
+
+  ul {
+    display: flex;
+    
+    li{
+        margin: 0 0.8rem;
+    }
+
+    a {
+      color: #fff;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    .active {
+      color: $primary-color;
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    display: none;
+    @include set-background-color($dark-color);
+    li {
+        padding: 0 1.2rem;
+        margin: 0.7rem 0;
+    }
+  }
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+}

@@ -1,0 +1,102 @@
+<h2>Reactive Form</h2>
+
+
+<div class="inline-cards">
+
+    <!-- Form -->
+    <div class="card">
+        <div class="card-header">
+            <h4>Form</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="form" class="form">
+
+                <div class="form-group">
+                    <input formControlName="name" type="text" placeholder="Enter Name">                
+                </div>
+                
+                <div formGroupName="contact">
+                    <div class="form-group">
+                        <input formControlName="phone" type="text" placeholder="Enter Phone">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="email" type="text" placeholder="Enter Email">
+                    </div>            
+                </div>       
+                
+                <div class="form-group">
+                    <select formControlName="interest">
+                        <option value="">-Select-</option>
+                        <option *ngFor="let item of subjects" 
+                        [ngValue]="item">{{ item.name }}</option>
+                    </select>
+                </div>         
+
+                <div class="form-group">
+                    <input formControlName="type" id="type" type="checkbox">
+                    <label for="type">Novice</label>
+                </div>
+
+                <div class="form-group">
+                    <input value="male" formControlName="gender" name="gender" id="male" type="radio">
+                    <label for="male" class="mr-1">Male</label>
+
+                    <input value="female" formControlName="gender" name="gender" id="female" type="radio">
+                    <label for="female">Female</label>
+                </div>
+
+                <div class="form-group d-flex">
+                    <div formGroupName="courses" *ngFor="let item of technologies">
+                        <input [formControlName]="item" [id]="item" type="checkbox">
+                        <label [for]="item" class="mr-1">
+                            {{ item }}
+                        </label>
+                     </div>
+                </div>
+
+                <div formArrayName="hobbies" class="form-group">
+                    <h3 class="mx-1 form-text">Hobbies</h3>
+                    <button (click)="addHobby()" class="btn btn-success mb-1">Add One More Hobby</button>
+
+                    <div *ngFor="let _ of hobbies.controls; index as i; last as l">
+                        <div class="d-flex" [class.mb-1]="!l">
+                            <input type="text" [formControlName]="i">
+                            <button (click)="deleteHobby(i)" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div formArrayName="properties" class="form-group">
+                    <h3 class="mx-1 form-text">Properties</h3>
+                    <button (click)="addProperty()" class="btn btn-success mb-1">Add Property</button>
+
+                    <div *ngFor="let _ of properties.controls; index as i; last as l">                        
+                        <div class="d-flex" [class.mb-1]="!l" [formGroupName]="i">
+                            <input formControlName="key" type="text" placeholder="Key">
+                            <input formControlName="value" type="text" placeholder="Value">  
+                            <button (click)="deleteProperty(i)" class="btn btn-danger">Delete</button>                      
+                        </div>                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button (click)="reset()" class="btn btn-light">Reset</button>
+                    <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Form Valule -->
+    <div class="card">
+        <div class="card-header">
+            <h4>Form Value</h4>
+        </div>
+        <div class="card-body">
+            <pre>{{ form.value | json }}</pre>
+        </div>
+    </div>
+</div>

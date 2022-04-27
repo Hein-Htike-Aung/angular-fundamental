@@ -1,0 +1,61 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #333;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7rem;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+
+  ul {
+    display: flex;
+    a {
+      margin: 0 0.3rem;
+      padding: 0 0.4rem;
+      color: #fff;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  
+
+  .active {
+    color: $primary-color!important;
+  }
+}
+
+.inline-cards {
+  display: flex;
+  gap: 1rem;
+}

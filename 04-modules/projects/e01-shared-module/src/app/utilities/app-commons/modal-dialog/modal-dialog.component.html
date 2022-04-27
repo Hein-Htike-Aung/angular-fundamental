@@ -1,0 +1,13 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <span (click)="close()" class="close">&times;</span>
+        <h2>Modal Dialog</h2>
+    </div>
+    <div class="modal-body">
+        <ng-content></ng-content>
+    </div>
+    <div class="modal-footer">
+        <button (click)="close()" class="btn btn-light">Close</button>
+        <button class="btn btn-primary">Submit</button>
+    </div>
+</div>

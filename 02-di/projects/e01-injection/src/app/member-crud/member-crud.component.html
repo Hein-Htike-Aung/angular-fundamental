@@ -1,0 +1,44 @@
+
+<h2 class="text-primary mb-1">Member List</h2>
+
+<div [formGroup]="searchForm" class="form-inline">
+
+  <div class="form-group">
+    <input type="text" formControlName="name" placeholder="Search By Name" />
+  </div>
+
+  <div class="form-group">
+    <select formControlName="role">
+      <option *ngFor="let role of roles" [ngValue]="role">{{ role || 'All Roles' }}
+        
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <button [routerLink]="['/member', 0, 'edit']" class="btn btn-primary">Add New</button>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of memberlist">
+      <td>{{ member.id }}</td>
+      <td>{{ member.name }}</td>
+      <td>{{ member.role }}</td>
+      <td>
+        <button [routerLink]="['/member', member.id, 'edit']" class="btn btn-success">Edit</button>
+        <button [routerLink]="['/member', member.id, 'details']" class="btn btn-success">Details</button>
+        <button (click)="delete(member.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

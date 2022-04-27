@@ -1,0 +1,33 @@
+<h2 class="text-primary">{{ type }}</h2>
+
+<search-bar [type]="type" (onSearch)="search($event)" (onSearchAll)="searchAll($event)"></search-bar>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Employee</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of balanceDetailList">
+            <td>{{ d.id }}</td>
+            <td>{{ d.balance?.applyDate | date: 'MM-dd-yyyy' }}</td>
+            <td>{{ d.balance?.category?.type }}</td>
+            <td>{{ d.balance?.employee }}</td>
+            <td>{{ d.item }}</td>
+            <td>{{ d.quantity }}</td>
+            <td>{{ d.price }}</td>
+            <td>
+                <button [routerLink]="['/balance', type, d.id]" class="btn btn-primary">Edit</button>
+                <button class="btn btn-success">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

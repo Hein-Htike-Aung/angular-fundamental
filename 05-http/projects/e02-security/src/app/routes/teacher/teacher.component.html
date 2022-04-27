@@ -1,0 +1,25 @@
+<nav class="navbar bg-dark">
+    <a [routerLink]="['/teacher']" >
+        <h2 class="text-primary"> Teacher Home</h2>
+    </a>
+
+    <ul>
+        <li *ngIf="isAdmin()">
+            <a [routerLink]="['/teacher/teachers']" routerLinkActive="active" >Teachers</a>
+        </li>
+        <li>
+            <a [routerLink]="['/teacher/courses']" routerLinkActive="active" >Courses</a>
+        </li>
+        <li>
+            <a [routerLink]="['/teacher/classes']" routerLinkActive="active" >Classes</a>
+        </li>
+        <!-- <li *ngIf="username">
+            <a><i class="fa fa-user"></i> {{ username }}</a>
+        </li> -->
+        <li>
+            <a (click)="signOut()">Log Out</a>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>

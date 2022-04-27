@@ -1,0 +1,139 @@
+<h2>Reactive Form Validation</h2>
+
+<div class="inline-cards">
+    <div class="card">
+        <div class="card-header">
+            <h4>Form</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="form" class="form">
+    
+                <div class="form-group">
+                    <div class="d-flex input-with-icon">
+                        <input type="text" formControlName="name" placeholder="Enter Name">
+                        <i class="fa text-success"
+                        [ngClass]="getFormControl('name')?.valid ? 'fa-check': ''"></i>
+                    </div>
+                    <span *ngIf="showError({controlName: 'name'})" class="form-text-danger">
+                        {{ getFormControl('name').errors!['required'] ? 'Enter Name': '' }}
+                    </span>
+                </div>
+    
+                <div formGroupName="contact">
+                    <div class="form-group">
+                        <div class="d-flex input-with-icon">
+                            <input type="tel" formControlName="phone" placeholder="Enter phone">
+                            <i class="fa text-success" 
+                            [ngClass]="getFormControl('phone', 'contact').valid ? 'fa-check': '' "></i>
+                        </div>
+    
+                        <span *ngIf="showError({groupName: 'contact', controlName: 'phone'})" class="form-text-danger">
+                            {{ getFormControl('phone', 'contact').errors!['required'] ? 'Enter Phone': 'Phone Number format is incorrect' }}
+                        </span>
+                    </div>
+    
+                    <div class="form-group">
+                        <div class="d-flex input-with-icon">
+                            <input type="email" formControlName="email" placeholder="Enter Email">
+                            <i class="fa text-success" 
+                            [ngClass]="getFormControl('email', 'contact').valid ? 'fa-check': '' "></i>
+                        </div>
+                        <span *ngIf="showError({groupName: 'contact', controlName: 'email'})" class="form-text-danger">
+                            {{ getFormControl('email', 'contact').errors!['required'] ? 'Enter Email Address':'Email format is incorrect' }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <select formControlName="interest">
+                        <option value="">-Select-</option>
+                        <option *ngFor="let item of interests" [ngValue]="item">{{ item.name }}</option>                        
+                    </select>
+                    <span *ngIf="showError({controlName: 'interest'})" class="form-text-danger">
+                        {{ getFormControl('interest').errors!['required']? 'Select one of the item':'' }}
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <input id="type" type="checkbox" formControlName="type">
+                    <label for="type">Novice</label>
+                    <span *ngIf="showError({controlName: 'type'})" class="form-text-danger">
+                        {{ getFormControl('type').errors!['falseValue']? 'Please Select':'' }}
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <input id="male" type="radio" name="gender" value="male" formControlName="gender">
+                    <label for="male" class="mr-1">Male</label>
+                    <input id="female" type="radio" name="gender" value="female" formControlName="gender">
+                    <label for="female">Female</label>
+                    <span *ngIf="showError({controlName: 'gender'})" class="form-text-danger">
+                        {{ getFormControl('gender').errors!['required']? 'Choose Gender':'' }}
+                    </span>
+                </div>
+
+                <div class="form-group ">
+                    <div class="d-flex" formGroupName="courses" >
+                        <div *ngFor="let subject of subjects">
+                            <input [id]="subject" type="checkbox" [formControlName]="subject">
+                            <label [for]="subject" class="mr-1">{{ subject }}</label>                            
+                        </div>                                            
+                    </div>
+                    <span *ngIf="showError({control: form.get('courses')})" class="form-text-danger">
+                        {{ form.get('courses')?.errors!['falseValue']? 'Choose One':'' }}
+                    </span>
+                </div>
+
+                <div class="form-group" formArrayName="hobbies">
+                    <h3 class="form-text">Hobbies</h3>
+                    <button class="btn btn-success mx-1" (click)="addHobby()">Add Hobby</button>
+
+                    <div *ngFor="let _ of hobbies.controls; index as i; last as l">
+                        <div class="d-flex mx-1">
+                            <input type="text" [formControlName]="i">
+                            <button class="btn btn-danger" (click)="deleteHobby(i)">Delete</button>
+                        </div>
+                        <span *ngIf="showError({control: hobbies.at(i)})" class="form-text-danger">
+                            {{ hobbies.at(i).errors!['required']? 'Enter Hobby':''}}
+                        </span>
+                    </div>                    
+
+                </div>
+
+                <div class="form-group" formArrayName="properties">
+                    <h3 class="form-text">Properties</h3>
+                    <button class="btn btn-success mx-1" (click)="addProperty()">Add Property</button>
+
+                    <div *ngFor="let prop of properties.controls; index as i; last as l">
+                       <div class="d-flex mx-1" [formGroupName]="i">
+                            <input type="text" formControlName="key">
+                            <input type="text" formControlName="value">
+                            <button class="btn btn-danger" (click)="deleteProperty(i)" >Delete</button>
+                       </div>
+                       <span *ngIf="showError({control: getFormControlFromFormArray(properties, i, 'key')}) || 
+                                    showError({control: getFormControlFromFormArray(properties, i, 'value')})" class="form-text-danger">
+
+                            {{ getErrorMessageForProperties(i) }}
+                       </span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <button (click)="reset()" class="btn btn-light">Reset</button>
+                    <button (click)="save()" type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            <h4>Form Value</h4>
+        </div>
+        <div class="card-body">
+            <pre>{{ form.value | json }}</pre>
+        </div>
+    </div>
+</div>

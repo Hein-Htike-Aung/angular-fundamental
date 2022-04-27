@@ -1,0 +1,36 @@
+@import 'scss/config';
+@import 'scss/form';
+@import 'scss/utilities';
+@import 'scss/modal';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-color;
+}
+ul {
+    list-style: none;
+}
+
+.container {
+    padding: 0 12rem;
+    margin: auto;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+}
+
+.inline-right-side {
+    display: flex;
+    justify-content: flex-end;
+}

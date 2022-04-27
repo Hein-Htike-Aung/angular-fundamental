@@ -1,0 +1,52 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+body {
+  line-height: 1.2rem;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 9rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: sticky;
+
+  ul {
+    display: flex;
+    li {
+      a {
+        font-size: 17px;
+        margin: 0 0.5rem;
+        color: #fff !important;
+
+        &:hover {
+          color: $primary-color !important;
+        }
+
+        &.active {
+          color: $primary-color !important;
+        }
+      }
+    }
+  }
+}

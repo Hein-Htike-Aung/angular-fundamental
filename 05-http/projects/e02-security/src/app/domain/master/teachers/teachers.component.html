@@ -1,0 +1,93 @@
+<section class="container">
+  <h2 class="text-primary">Teachers Management</h2>
+
+  <form [formGroup]="searchForm" class="form-inline">
+    <div class="form-group">
+      <input type="text" formControlName="name" placeholder="Teacher Name.." />
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="phone"
+        placeholder="Teacher Phone.."
+      />
+    </div>
+    <div class="form-group">
+      <button (click)="search()" class="btn btn-success">Search</button>
+      <button (click)="searchAll()" class="btn btn-success">Search All</button>
+    </div>
+    <div class="form-group">
+      <button (click)="addNew()" class="btn btn-primary">Add New</button>
+    </div>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>created</th>
+        <th>Updated</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teacherList">
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.phone }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.createdAt | date: "MM-dd-yyyy (HH:mm)" }}</td>
+        <td>{{ teacher.updatedAt | date: "MM-dd-yyyy (HH:mm)" }}</td>
+        <td>
+          <button (click)="edit(teacher.objectId)" class="btn btn-success">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal Dialog -->
+  <div class="modal">
+    <app-modal-dialog
+      [title]="modalTitle"
+      [disableSubmitButton]="form.invalid"
+      (submitButton)="save($event)"
+    >
+      <form class="form" [formGroup]="form">
+        <input type="text" class="d-none" formControlName="objectId" />
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Enter Name" formControlName="name" />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input
+            type="text"
+            placeholder="Enter Phone"
+            formControlName="phone"
+          />
+        </div>
+        <div formGroupName="user">
+          <div class="form-group" *ngIf="!form.value.objectId">
+            <label>Email</label>
+            <input
+              type="text"
+              placeholder="Enter Email"
+              formControlName="email"
+            />
+          </div>
+          <div class="form-group" *ngIf="!form.value.objectId">
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="Enter username"
+              formControlName="username"
+            />
+          </div>
+        </div>
+      </form>
+    </app-modal-dialog>
+  </div>
+</section>

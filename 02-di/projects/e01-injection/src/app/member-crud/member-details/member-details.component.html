@@ -1,0 +1,22 @@
+<h2 class="text-primary">Member Details</h2>
+
+<div class="form" [formGroup]="form">
+    <div class="form-group">
+        <input type="text" formControlName="name" readonly>
+    </div>
+    <div formGroupName="contact">
+        <div class="form-group">
+            <input type="text" formControlName="phone" readonly> 
+        </div>
+        <div class="form-group">
+            <input type="text" formControlName="email" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="role" readonly> 
+    </div>
+
+    <div class="form-group">
+        <button [routerLink]="['/member']" class="btn btn-light">Back</button>
+    </div>
+</div>

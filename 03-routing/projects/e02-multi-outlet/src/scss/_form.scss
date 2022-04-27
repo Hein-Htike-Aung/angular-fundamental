@@ -1,0 +1,45 @@
+@import "config";
+
+.form {
+  &-group {
+    margin: 2rem 0;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],  
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    font-size: 16px;
+    border: 1px solid #888;
+
+    &:focus-visible {
+      outline: 1px solid $primary-color;
+    }
+  }
+}
+
+.form-mini {    
+  @extend .form;
+
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  select,
+  textarea {
+    width: 50%;    
+  }
+}

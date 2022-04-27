@@ -1,0 +1,13 @@
+<nav class="navbar bg-dark">
+    <a [routerLink]="['/public']" >
+        <h2 class="text-primary"> Public Home</h2>
+    </a>
+
+    <ul>
+        <li>
+            <a [routerLink]="['/public/sign-in']" routerLinkActive="active" >Sign in</a>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>

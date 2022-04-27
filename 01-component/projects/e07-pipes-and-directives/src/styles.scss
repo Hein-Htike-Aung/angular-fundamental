@@ -1,0 +1,98 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+@import "scss/modal";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+ul {
+  list-style: none;
+}
+
+.container {
+  padding: 0 12rem;
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.navbar {
+  display: flex;
+  padding: 1.2rem 12rem;
+  justify-content: space-between;
+  top: 0;
+  overflow: hidden;
+  position: sticky;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
+
+  ul {
+    display: flex;
+
+    a {
+      color: #fff;
+      margin: 0 0.6rem;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.inline-right-side {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inline-cards {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.card {
+  margin: 1rem 0;
+
+  &-header {
+    background: #888;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    border: none;
+  }
+  &-body, &-footer {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+}
+
+.list {
+
+  & > div {
+    border: 1px solid #ccc;
+    padding: 0.4rem 4rem;
+    text-align: center;
+  }
+
+  & > div:hover{
+    @include set-background($dark-color);
+  }
+
+}

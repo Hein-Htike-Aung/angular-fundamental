@@ -1,0 +1,61 @@
+<h2 class="text-primary">Course Management</h2>
+
+<form  [formGroup]="searchForm" class="form-inline">
+    <div class="form-group">
+        <input type="text" formControlName="name" placeholder="Search by Name...">
+    </div>
+    <div class="form-group">
+        <button (click)="addNew()" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Duration</th>
+            <th>Fees</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of courses; index as i">
+            <td>{{ c.name }}</td>
+            <td>{{ c.level }}</td>
+            <td>{{ c.duration | number }} Hrs</td>
+            <td>{{ c.fees | number }} MMK</td>
+            <td>
+                <button (click)="edit(c.objectId)" class="btn btn-success">Edit</button>
+                <button (click)="delete(c.objectId)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal Dialog -->
+<div class="modal">
+    <app-modal-dialog [title]="modalDialogTitle" [disableButton]="form.invalid" (submitButton)="save($event)"> 
+
+        <form [formGroup]="form" class="form">
+            <input type="text" formControlName="objectId" class="d-none">
+            <div class="form-group">
+                <input type="text" formControlName="name" placeholder="Enter Course Name">
+            </div>
+            <div class="form-group">
+                <select formControlName="level">
+                    <option value="">-Level-</option>
+                    <option *ngFor="let item of courseLevel" [ngValue]="item">{{ item }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" formControlName="duration" placeholder="Enter Duration in hr">
+            </div>
+            <div class="form-group">
+                <input type="number" formControlName="fees" placeholder="Enter Fees">
+            </div>
+        
+        </form>
+
+    </app-modal-dialog>
+</div>

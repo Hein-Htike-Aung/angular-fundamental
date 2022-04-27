@@ -1,0 +1,31 @@
+@import 'config';
+
+.form {
+  &-group {
+    margin: 1.2rem 0;
+  }
+
+  &-text {
+    color: #888;
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  input[type='text'],
+  input[type='tel'],
+  input[type='password'],
+  input[type='date'],
+  input[type='number'],
+  select,
+  textarea {
+    display: inline-block;
+    padding: 0.2rem;
+    border: 1px solid #888;
+    font-size: 1.2rem;
+
+    &:focus-visible {
+        outline: none;
+      border: $primary-color 1px solid;
+    }
+  }
+}

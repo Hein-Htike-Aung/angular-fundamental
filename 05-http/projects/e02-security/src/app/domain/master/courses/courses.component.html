@@ -1,0 +1,91 @@
+<section class="container">
+  <h2 class="text-primary">Course Management</h2>
+
+  <form [formGroup]="searchForm" class="form-inline">
+    <div class="form-group">
+      <select formControlName="level">
+        <option value="">-Select-</option>
+        <option *ngFor="let item of courseLevel" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="text" formControlName="name" placeholder="Enter Name..." />
+    </div>
+    <div class="form-group">
+      <button (click)="search()" class="btn btn-success">Search</button>
+      <button (click)="searchAll()" class="btn btn-success">Search All</button>
+    </div>
+    <div class="form-group">
+      <button (click)="addNew()" class="btn btn-primary">Add New</button>
+    </div>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nmae</th>
+        <th>Level</th>
+        <th>Duration</th>
+        <th>Fees</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.name }}</td>
+        <td>{{ course.level }}</td>
+        <td>{{ course.duration }} Hrs</td>
+        <td>{{ course.fees | number }} MMK</td>
+        <td>{{ course.createdAt | date: "MM-dd-yyyy" }}</td>
+        <td>{{ course.updatedAt | date: "MM-dd-yyyy" }}</td>
+        <td>
+          <button (click)="edit(course.objectId)" class="btn btn-success">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal">
+    <app-modal-dialog
+      [title]="modalTitle"
+      [disableSubmitButton]="form.invalid"
+      (submitButton)="save($event)"
+    >
+      <form class="form" [formGroup]="form">
+        <input type="text" formControlName="objectId" class="d-none" />
+        <div class="form-group">
+          <select formControlName="level">
+            <option value="">-Select-</option>
+            <option *ngFor="let item of courseLevel" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="text" formControlName="name" placeholder="Enter Name" />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            formControlName="duration"
+            placeholder="Enter Duration"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            formControlName="fees"
+            placeholder="Enter Fees"
+          />
+        </div>
+      </form>
+    </app-modal-dialog>
+  </div>
+</section>

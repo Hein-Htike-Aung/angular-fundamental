@@ -1,0 +1,83 @@
+<h2 class="text-primary">Directives</h2>
+
+<div class="my-2">
+    <button (click)="show = !show" class="btn btn-primary">
+        {{ show? 'Hide':'Show' }}
+    </button>
+</div>
+
+<div class="inline-cards my-1">
+    <div class="card">
+        <div class="card-header">Using Properties</div>
+        <div class="card-body">
+            <span [hidden]="!show" >Hello</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Using CSS</div>
+        <div class="card-body">
+            <span [class.hide]="!show" >Hello</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Using ngIf (element is completely removed)
+        </div>
+        <div class="card-body">
+            <span *ngIf="show" >Hello</span>
+        </div>
+    </div>
+</div>
+
+<div class="inline-cards my-1">
+    <div class="card">
+        <div class="card-header">ngSwitch</div>
+        <div class="card-body">
+            <select #select (change)="0" style="width: 100%;">
+                <option value="">-Select-</option>
+                <option value="opt1">Option 1</option>
+                <option value="opt2">Option 2</option>
+                <option value="opt3">Option 3</option>
+                <option value="opt4">Option 4</option>
+            </select>
+        </div>
+        <div class="card-footer" [ngSwitch]="select.value">
+            <span *ngSwitchCase="'opt1'">This is Option One</span>
+            <span *ngSwitchCase="'opt2'">This is Option Two</span>
+            <span *ngSwitchCase="'opt3'">This is Option Three</span>
+            <span *ngSwitchCase="'opt4'">This is Option Four</span>
+            <span *ngSwitchDefault>This is Default Option</span>
+        </div>
+    </div>
+</div>
+
+<div class="inline-cards my-1">
+
+    <div class="card">
+        <div class="card-header">ngFor</div>
+        <div class="card-body">
+            <div class='list'
+            *ngFor="let item of list; index as i;odd as o" 
+            [class.bg-light]="o" >
+                <div>{{ item + ' ' + i }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">ngFor</div>
+        <div class="card-body">
+            <div class='list'
+            *ngFor="let item of list; first as f; last as l;even as e; count as c" 
+            [class.bg-light]="e"
+            [class.mb-1]="f"
+            [class.mt-1]="l" >
+                <div>{{ item }}</div>
+                <div [class.bg-dark]="l" *ngIf="l">{{ 'Total: ' + c }}</div>
+        </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+<h3>Life Cycle Overview</h3>
+
+<p>{{ message }}</p>
+
+<div>
+  <button (click)="countUp(true)" class="btn">Count Up</button>
+  <span style="margin-right: 0.5rem;">{{ count }}</span>
+  <button (click)="countUp(false)" class="btn">Count Down</button>
+</div>
+
+<div class="logs">
+  <div class="parent">
+    <h4>Events Log From Parent</h4>
+    <ul>
+      <li *ngFor="let log of logList">{{ log }}</li>
+    </ul>
+  </div>
+  <div class="child">
+    <app-child [message]="getMessageForChild()"></app-child>
+  </div>
+</div>

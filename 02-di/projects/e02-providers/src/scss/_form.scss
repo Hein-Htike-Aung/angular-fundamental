@@ -1,0 +1,55 @@
+@import "config";
+
+.form {
+  &-group {
+    margin: 2rem 0;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    padding: 0.8rem 1rem;
+    width: 100%;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &:focus-visible {
+      border: 1px solid $primary-color;
+    }
+  }
+}
+
+.form-inline {
+  display: flex;
+
+  .form-group {
+    margin-right: 1.2rem;
+  }
+
+  & :last-child {
+      margin-left: auto;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    padding: 0.4rem 1rem;
+    width: 240px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &:focus-visible {
+      border: 1px solid $primary-color;
+    }
+  }
+}

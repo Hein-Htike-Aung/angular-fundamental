@@ -1,0 +1,29 @@
+@import 'config';
+
+
+.bg {
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-primary {
+    @include set-background($primary-color);
+  }
+
+  &-success {
+    @include set-background($success-color);
+  }
+
+  &-danger {
+    @include set-background($danger-color);
+  }
+}
+
+
+.text {
+    &-primary {
+        color: $primary-color;
+    }
+}

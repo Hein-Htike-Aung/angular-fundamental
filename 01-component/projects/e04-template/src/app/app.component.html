@@ -1,0 +1,23 @@
+<nav class="navbar bg-dark">
+  <h4><a href="#">Template Driven Form</a></h4>
+  <ul>
+    <li>
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Template Form</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/reactive']" routerLinkActive="active">Reactive</a>
+    </li>
+    <li>
+      <a [routerLink]="['/validations']" routerLinkActive="active">Validations</a>
+    </li>    
+  </ul>
+</nav>
+
+<section class="container">
+  <router-outlet></router-outlet>
+</section>

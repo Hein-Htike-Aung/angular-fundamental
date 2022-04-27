@@ -1,0 +1,49 @@
+@import 'scss/config';
+@import 'scss/form';
+@import 'scss/utilities';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: #333;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: $primary-color;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 7rem;
+    top: 0;
+    z-index: 1;
+    position: sticky;
+
+    ul {
+        display: flex;
+        
+        a{
+            margin: 0 0.3rem;
+            padding: 0 0.4rem;
+            color: #fff;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,150 @@
+<section class="container">
+  <h2 class="text-primary">Class Management</h2>
+
+  <form [formGroup]="searchForm" class="form-inline">
+    <div class="form-group">
+      <select formControlName="teacher">
+        <option value="">Teacher</option>
+        <option *ngFor="let t of teachers" [ngValue]="t.objectId">
+          {{ t.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select formControlName="course">
+        <option value="">Course</option>
+        <option *ngFor="let c of courses" [ngValue]="c.objectId">
+          {{ c.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="date" formControlName="dateFrom" />
+    </div>
+    <div class="form-group">
+      <input type="date" formControlName="dateTo" />
+    </div>
+    <div class="form-group">
+      <button (click)="search()" class="btn btn-success">Search</button>
+      <button (click)="searchAll()" class="btn btn-success">Search All</button>
+    </div>
+    <div class="form-group">
+      <button (click)="addNew()" class="btn btn-primary">Add New</button>
+    </div>
+  </form>
+
+  <!-- Upload Button -->
+  <button (click)="uploadClick()" class="btn btn-primary upload-btn">
+    Upload Multiple Class
+  </button>
+
+  <span class="text-danger ml-1">
+    {{ searchForm.errors ? searchForm.errors!["error"] : "" }}
+  </span>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Fees</th>
+        <th>Start Date</th>
+        <th>Teacher</th>
+        <th>Days</th>
+        <th>Time</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of classes">
+        <td>{{ c.course.name }}</td>
+        <td>{{ c.course.fees | number }} MMK</td>
+        <td>{{ c.startDate | date: "MM-dd-yyyy" }}</td>
+        <td>{{ c.teacher.name }}</td>
+        <td>{{ c.days | days }}</td>
+        <td>
+          {{ c.period | times }}
+        </td>
+        <td>
+          <button (click)="edit(c.objectId)" class="btn btn-success">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal">
+    <app-modal-dialog
+      [disableSubmitButton]="form.invalid"
+      [title]="modalDialogTitle"
+      (submitButton)="save($event)"
+    >
+      <form [formGroup]="form" class="form">
+        <!-- Teacher -->
+        <div class="form-group">
+          <label>Teacher</label>
+          <select formControlName="teacher">
+            <option value="">Teacher</option>
+            <option *ngFor="let t of teachers" [ngValue]="t.objectId">
+              {{ t.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Course -->
+        <div class="form-group">
+          <label>Course</label>
+          <select formControlName="course">
+            <option value="">Course</option>
+            <option *ngFor="let c of courses" [ngValue]="c.objectId">
+              {{ c.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Start Date -->
+        <div class="form-group">
+          <label>Start Date</label>
+          <input type="date" formControlName="startDate" />
+        </div>
+
+        <!-- Period -->
+        <div formGroupName="period" class="d-flex">
+          <div class="form-group">
+            <label>Start Time</label>
+            <input type="time" formControlName="startTime" />
+          </div>
+          <div class="form-group">
+            <label>End Time</label>
+            <input type="time" formControlName="endTime" />
+          </div>
+        </div>
+        <span *ngIf="showError(form.get('period'))" class="text-danger">
+          {{
+            this.form.get("period")?.errors
+              ? (this.form.get("period")?.errors)!["error"]
+              : "Choose Times"
+          }}
+        </span>
+
+        <!-- Days -->
+        <div formArrayName="days">
+          <div class="form-group d-flex">
+            <div *ngFor="let _ of getDays().controls; index as i" class="mr-1">
+              <input [id]="i" type="checkbox" [formControlName]="i" />
+              <label [for]="i"> {{ i | days }}</label>
+            </div>
+          </div>
+          <span class="text-danger" *ngIf="showError(form.get('days'))">
+            {{ (this.form.get("days")?.errors)!["error"] }}
+          </span>
+        </div>
+      </form>
+    </app-modal-dialog>
+  </div>
+
+  <!-- Input File -->
+  <form action="#" class="d-none">
+    <input (change)="uploadFile($event)" #uploadFileInput type="file" />
+  </form>
+</section>

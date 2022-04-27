@@ -1,0 +1,53 @@
+<h2 class="text-primary">Category Managerment</h2>
+
+<!-- searching -->
+<form [formGroup]="searchForm" class="form-inline">
+    <div class="form-group">
+        <select formControlName="type">
+            <option value="">All Type</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="name" placeholder="Search by Name..">
+    </div>
+    <div class="form-group ml-auto">
+        <button (click)="addNew()" class="btn btn-primary">Add New</button>
+    </div>
+</form>
+
+
+<!-- Table -->
+<table class="table" *ngIf="categoryList.length">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of categoryList">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.type }}</td>
+            <td>
+                <span class="text-primary">
+                    <i class="fa" ngClass="{{ item.deleted ? 'fa-close':'fa-check' }}"></i>
+                </span>
+            </td>
+            <td>
+                <button (click)="edit(item)" class="btn btn-success">Edit</button>
+                <button (click)="delete(item.id)" class="btn btn-danger">Switch Status</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal Dialog -->
+<div class="modal" id="category-modal">
+    <category-edit-modal [InputValue]="this.category" (outputValue)="save($event)"></category-edit-modal>
+</div>

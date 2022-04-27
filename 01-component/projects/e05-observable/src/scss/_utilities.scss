@@ -1,0 +1,53 @@
+@import 'config';
+
+.container {
+    padding: 0 7rem;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+    overflow: hidden;
+}
+
+.text {
+    &-light{
+        color: $light-color;
+    }
+    &-dark{
+        color: $dark-color;
+    }
+    &-success{
+        color: $success-color;
+    }
+    &-primary{
+        color: $primary-color;
+    }
+    &-danger{
+        color: $danger-color;
+    }
+}
+
+.bg {
+    &-light {
+        @include set-background($light-color);
+    }
+    &-dark {
+        @include set-background($dark-color);
+    }
+    &-primary {
+        @include set-background($primary-color);
+    }
+    &-success {
+        @include set-background($success-color);
+    }&-danger {
+        @include set-background($danger-color);
+    }
+
+}
+
+.active {
+    color: $primary-color!important;
+}
+
+.d-flex {
+    display: flex;
+}

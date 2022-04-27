@@ -1,0 +1,3 @@
+<input #inputValue type="text" [value]="value" 
+    placeholder="Value from Child"
+    (input)="valueChange.emit(inputValue.value)">

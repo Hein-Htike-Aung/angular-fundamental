@@ -1,0 +1,46 @@
+
+
+<nav class="navbar bg-dark">
+  <h2 class="text-primary">Routing</h2>
+
+  <ul>
+
+    <li>
+      <a [routerLink]="['/simple-link']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Simple_Link</a>
+    </li>
+
+    <li>
+      <a [routerLink]="['/page-not-found']" routerLinkActive="active">Page_not_Found</a>
+    </li>
+    
+    <li>
+      <a [routerLink]="['/nested-link']" routerLinkActive="active">Nested_Link</a>
+    </li>
+    
+    <li>
+      <a [routerLink]="['/passing-params']" routerLinkActive="active">Passing_Parameter</a>
+    </li>
+  
+    <!-- <li class="dropdown-menu">
+      <a [routerLink]="['/resolve']" routerLinkActive="active" >Resolve
+        <span class="fa fa-caret-down"></span>
+      </a>
+      <ul class="nav-dropdown"> 
+        <li>
+          <a [routerLink]="['/resolve/from']" routerLinkActive="active" >Resolve From</a>
+        </li>
+        <li>
+          <a [routerLink]="['/resolve/to']" routerLinkActive="active" >Resolve To</a>
+        </li>
+      </ul>
+    </li> -->
+    <li>
+      <a [routerLink]="['/resolve']" routerLinkActive="active" >Resovler</a>
+    </li>
+
+  </ul>
+</nav>
+
+<section class="container">
+  <router-outlet></router-outlet>
+</section>

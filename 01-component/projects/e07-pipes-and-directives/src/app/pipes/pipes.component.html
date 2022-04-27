@@ -1,0 +1,103 @@
+<h2 class="text-primary">Build In Pipes</h2>
+
+<!-- String -->
+<div class="inline-cards my-1">
+
+    <div class="card">
+        <div class="card-header">UpperCase Pipe</div>
+        <div class="card-body">
+            {{ name | uppercase}}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">UpperCase Pipe</div>
+        <div class="card-body" [innerText]="name | lowercase">
+        </div>
+    </div>
+
+</div>
+
+<!-- Percent -->
+<div class="inline-cards my-1">
+
+    <div class="card">
+        <div class="card-header">Percent Pipe</div>
+        <div class="card-body">
+            {{ percent1 | percent}}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Percent Pipe</div>
+        <div class="card-body">
+            {{ percent2 | percent}}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Percent Pipe</div>
+        <div class="card-body">
+            {{ percent3 | percent}}
+        </div>
+    </div>
+</div>
+
+<!-- Number -->
+<div class="inline-cards my-1">
+    
+    <div class="card">
+        <div class="card-header">Currency Pipe</div>
+        <div class="card-body">
+            {{ price | currency: '' : 'code'}}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Currency Pipe</div>
+        <div class="card-body">
+            {{ price | currency:'MMK'}}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Currency Pipe</div>
+        <div class="card-body">
+            {{ price | currency: '' : 'symbol' : '1.1'}}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Number Pipe</div>
+        <div class="card-body">
+            {{ price | number: '1.2'}}
+        </div>
+    </div>
+</div>
+
+<!-- Date -->
+<div class="inline-cards my-1">
+    <div class="card">
+        <div class="card-header">Date Pipe</div>
+        <div class="card-body">
+            {{ date | date  }}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Date Pipe</div>
+        <div class="card-body">
+            {{ date | date:'yyyy-MM-dd' }}
+        </div>
+    </div>
+</div>
+
+<!-- Custom Pipe -->
+<div class="inline-cards my-1">
+    <div class="card">
+        <div class="card-header">Custom Pipe</div>
+        <div class="card-body">
+            {{ price | mmk }}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">Custom Pipe</div>
+        <div class="card-body">
+            {{ strPrice | number:'1.2' | mmk: false }}
+        </div>
+    </div>
+</div>

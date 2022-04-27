@@ -1,0 +1,33 @@
+<nav class="navbar bg-dark">
+  <a href="#">
+    <h1 class="text-primary">Data Binding</h1>
+  </a>
+
+  <ul>
+    <li>
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Interpolation</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/properties']" routerLinkActive="active">Properties</a>
+    </li>
+    <li>
+      <a [routerLink]="['/attributes']" routerLinkActive="active">Attributes</a>
+    </li>
+    <li>
+      <a [routerLink]="['/events']" routerLinkActive="active">Events</a>
+    </li>
+    <li>
+      <a [routerLink]="['/two-way']" routerLinkActive="active">Two-Way</a>
+    </li>    
+  </ul>
+</nav>
+
+<section class="container">
+
+  <router-outlet></router-outlet>
+</section>

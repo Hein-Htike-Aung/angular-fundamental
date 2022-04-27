@@ -1,0 +1,46 @@
+<h2 class="text-primary">Custom Directives</h2>
+
+<!-- Custom Directive -->
+<div class="inline-cards my-1">
+    <div class="card">
+        <div class="card-header">Custom Directive</div>
+        <div class="card-body">
+            <div class="list">
+                <div highlight="bg-success"> Xiaoting is Pretty</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="inline-cards my-1">
+    <div class="card">
+        <div class="card-header">Custom Structural Directive</div>
+        <div class="card-body">
+            <form [formGroup]="form" class="form">
+
+                <div class="form-group">
+                    <input formControlName="name" type="text" placeholder="Enter Name">
+                    <ng-template errorMessageName="Name"
+                    [errorMessage]="this.form.get('name')">
+                        <span class="text-danger"></span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="phone" type="tel" placeholder="Enter Phone">
+                    <span *errorMessage="this.form.get('phone'), name:'Phone Number'" class="text-danger">
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="email" type="text" placeholder="Enter Email">
+                    <span *errorMessage="this.form.get('email'), name:'Email'" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button (click)="save()" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

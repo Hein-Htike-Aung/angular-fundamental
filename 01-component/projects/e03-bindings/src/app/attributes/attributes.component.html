@@ -1,0 +1,75 @@
+<h1>Atrributes, Style & Class Binding</h1>
+
+<!-- Attr Binding -->
+<div class="card">
+  <h3 class="card-header">Attributes Binding (Non dom Property)</h3>
+  <div class="card-body components">
+    <div class="form form-mini">
+      <input
+        type="range"
+        #slider
+        (change)="(0)"
+        [min]="min"
+        [max]="max"
+        [value]="now"
+        [attr.area-volumemin]="min"
+        [attr.area-volumemax]="max"
+        [attr.area-volumenow]="now"
+      />
+    </div>
+    <div>
+      <span class="form-text">{{ slider.value }}</span>
+    </div>
+  </div>
+</div>
+
+<!-- Class Binding -->
+<div class="card">
+  <h3 class="card-header">Class Binding</h3>
+  <div class="card-body">
+    <div [class]="multiClass">
+      <h3>Multi Class</h3>
+    </div>
+    <div class="line"></div>
+    <div [class.bg-danger]="bgDanger">
+      <h3>Single Class</h3>
+    </div>
+    <div class="line"></div>
+    <div class="bg-success" [class.bg-success]="bgSuccess">
+      <h3>Dispose Class</h3>
+    </div>
+    <div class="line"></div>
+    <div class="form from-mini components">
+      <div>
+        <select
+          #colorPicker
+          (change)="backgroundColor = colorPicker.value"
+          style="width: 250px">
+          <option value="bg-light">-Select-</option>
+          <option value="bg-success">Success</option>
+          <option value="bg-danger">Danger</option>
+          <option value="bg-primary">Primary</option>
+        </select>
+      </div>
+      <div style="cursor: pointer;" class="border default-text" (click)="showText = !showText" 
+      [class]="backgroundColor" [class.showText]="showText"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Style Binding -->
+<div class="card">
+  <h3 class="card-header">Style Binding</h3>
+  <div class="card-body components">
+      <div class="form">
+        <input type="range" #fontChanger 
+        (input)="changeTextSize(fontChanger.value)" 
+        max="20" min="5" [value]="textSize">
+        <span class="my-3">{{ fontChanger.value }}</span>
+      </div>
+      <div>
+        <span [style]="textStyle" 
+        [style.font-size.px]="textSize">Style Binding</span>
+      </div>
+  </div>
+</div>  

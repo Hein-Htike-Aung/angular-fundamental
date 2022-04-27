@@ -1,0 +1,96 @@
+@import "config";
+
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 0.7rem;
+  padding: 0.6rem 1.3rem;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  &.btn-primary {
+    @include set-background($primary-color);
+
+    &:hover {
+      outline: 1px solid $primary-color;
+    }
+  }
+  &.btn-light {
+    @include set-background($light-color);
+
+    &:hover {
+      @include set-background($dark-color);
+    }
+  }
+  &.btn-dark {
+    @include set-background($dark-color);
+
+    &:hover {
+      @include set-background($light-color);
+    }
+  }
+  &.btn-success {
+    @include set-background($success-color);
+
+    &:hover {
+      outline: 1px solid $success-color;
+    }
+  }
+  &.btn-danger {
+    @include set-background($danger-color);
+
+    &:hover {
+      outline: 1px solid $danger-color;
+    }
+  }
+}
+
+.text {
+    &-primary {
+        color: $primary-color;
+    }
+    &-light {
+        color: $light-color;
+    }
+    &-dark {
+        color: $dark-color;
+    }
+    &-success {
+        color: $success-color;
+    }
+    &-danger {
+        color: $danger-color;
+    }
+}
+
+.table {
+
+  margin: 2rem 0;
+
+  th {
+    @include set-background($light-color);
+  }
+
+  th,td {
+    padding: 1rem
+  }
+}

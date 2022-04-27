@@ -1,0 +1,93 @@
+@import "config";
+
+.container {
+  padding-left: 330px;
+  padding-top: 100px;
+  padding-bottom: 30px;
+  padding-right: 100px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  outline: none;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 0.8rem;
+
+  &.btn-primary {
+    @include set-background($primary-color);
+    &:hover {
+      outline: 1px solid $primary-color;
+    }
+  }
+  &.btn-light {
+    @include set-background($light-color);
+    &:hover {
+      outline: 1px solid $light-color;
+    }
+  }
+  &.btn-dark {
+    @include set-background($dark-color);
+    &:hover {
+      outline: 1px solid $dark-color;
+    }
+  }
+  &.btn-success {
+    @include set-background($success-color);
+    &:hover {
+      outline: 1px solid $success-color;
+    }
+  }
+  &.btn-danger {
+    @include set-background($danger-color);
+    &:hover {
+      outline: 1px solid $danger-color;
+    }
+  }
+}
+
+.text {
+  &-primary {
+    color: $primary-color;
+  }
+  &-light {
+    color: $light-color;
+  }
+  &-dark {
+    color: $dark-color;
+  }
+  &-success {
+    color: $success-color;
+  }
+  &-danger {
+    color: $danger-color;
+  }
+}
+
+.table {
+
+  margin: 2rem 0;
+
+  th, td {
+    padding: 0.9rem 1.4rem;
+    align-items: start;
+    // width: 150px;
+  }
+
+  th {
+    background: $light-color;
+  }
+  tbody > tr {
+    &:hover {
+      background: $light-color;
+    }
+  }
+  
+}
+
+.d-flex {
+  display: flex;
+}
+

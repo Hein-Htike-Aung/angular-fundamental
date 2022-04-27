@@ -1,0 +1,57 @@
+<h1>Two Way Data Binding</h1>
+
+<div class="card">
+    <div class="card-header">
+        Input & Event Binding
+    </div>
+    <div class="card-body">
+        <div class="form form-mini">
+            <div class="d-flex">
+                <div class="form-group">
+                    <input type="text" class="mr-2" placeholder="Parent First" #inputValue
+                    (input)="parentValue = inputValue.value"
+                    [value]="parentValue">
+                </div>
+                <div class="form-group">
+                    <input #secondValue type="text" 
+                    [value]="parentValue" 
+                    (input)="parentValue = secondValue.value"
+                    placeholder="Parent Second" class="mr-2">
+                </div>
+                <div class="form-group">
+                    <!-- Two way data binding -->
+                    <two-way-child [(value)]="parentValue">   
+                    </two-way-child>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Using Form Module
+    </div>
+    <div class="card-body">
+        <div class="form form-mini">
+            <div class="d-flex">
+                <div class="form-group">
+                    <input class="mr-2" type="text" #formInput [value]="formValue"
+                    (input)="formValue = formInput.value"
+                    placeholder="First Value">
+                </div>
+                <div class="form-group">
+                    <input class="mr-2" type="text" #formSecondInput 
+                    (input)="formValue = formSecondInput.value" [value]="formValue"
+                    placeholder="Second Value">
+                </div>
+                <!-- using FormsModule Directive -->
+                <div class="form-group">
+                    <input type="text" class="mr-2"
+                    [(ngModel)]="formValue"
+                    placeholder="Using FormsModule Dir">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

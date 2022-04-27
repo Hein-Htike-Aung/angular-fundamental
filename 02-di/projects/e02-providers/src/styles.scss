@@ -1,0 +1,68 @@
+@import "scss/config";
+@import "scss/form";
+@import "scss/utilities";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+body {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #333;
+}
+
+.side-bar {
+  position: absolute;
+  z-index: 1;
+  width: 250px;
+  height: 100%;
+  background: #101010;
+
+  .title {
+    text-align: center;
+    font-size: 25px;
+    line-height: 65px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+  ul {
+    li {
+      line-height: 60px;
+      border-top: 1px solid #333;
+      cursor: pointer;
+
+      a {
+        color: #fff !important;
+        font-size: 18px;
+        padding-left: 50px;
+      }
+
+      &:hover {
+        background: $dark-color;
+      }
+
+      &.active {
+        border-left: 3px solid $primary-color;
+        a{
+            color: $primary-color!important;
+        }
+      }
+    }
+
+    & > li:last-child {
+      border-bottom: 1px solid #333;
+    }
+  }
+}

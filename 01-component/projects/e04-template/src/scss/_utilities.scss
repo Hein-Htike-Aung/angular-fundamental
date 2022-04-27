@@ -1,0 +1,120 @@
+@import "config";
+
+.container {
+  padding: 0 7rem;
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 1.2rem;
+
+  &.btn-primary {
+    @include set-background($primary-color);
+
+    &:hover {
+      outline: 1px solid $primary-color;
+    }
+  }
+  &.btn-light {
+    @include set-background($light-color);
+
+    &:hover {
+      outline: 1px solid $light-color;
+    }
+  }
+  &.btn-dark {
+    @include set-background($dark-color);
+
+    &:hover {
+      outline: 1px solid $dark-color;
+    }
+  }
+  &.btn-success {
+    @include set-background($success-color);
+
+    &:hover {
+      outline: 1px solid $success-color;
+    }
+  }
+  &.btn-danger {
+    @include set-background($danger-color);
+
+    &:hover {
+      outline: 1px solid $danger-color;
+    }
+  }
+}
+
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+}
+
+.text{
+  &-primary {
+    color: $primary-color;
+  }
+  &-light {
+    color: $light-color;
+  }
+  &-dark {
+    color: $dark-color;
+  }
+  &-success {
+    color: $success-color;
+  }
+  &-danger {
+    color: $danger-color;
+  }
+}
+
+.table {
+  th, td {
+    padding: 1rem;
+    text-align: start;
+  }
+  th {
+    background: $light-color;
+  }
+}
+
+.card {
+  position: relative;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 0.25rem;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 2rem 0;
+  
+
+  .card-header {
+    @include set-background($light-color);
+    padding: 0.7rem 0.4rem;
+  }
+  .card-body{
+    padding: 0 2rem;
+  }
+}

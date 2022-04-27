@@ -1,0 +1,170 @@
+@import "scss/utilities";
+@import "scss/config";
+@import "scss/form";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.line {
+  height: 1px;
+  background: #ccc;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.active {
+  color: $primary-color !important;
+}
+.container {
+  padding: 0 7rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 7rem;
+  top: 0;
+  align-items: center;
+
+  ul {
+    display: flex;
+
+    a {
+      color: #fff;
+      padding: 0.45rem;
+      margin: 0 0.25rem;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.form-mini {
+  width: 600px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  margin: 0.6rem 0;
+  &-header {
+    background: #ccc;
+    padding: 0.4rem 0.2rem;
+  }
+  &-body {
+    padding: 1rem 0.5rem;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.default-text {
+  display: flex;
+  justify-content: center;
+  &:before {
+    content: 'Click Here';
+  }
+}
+.showText {
+  display: flex;
+  justify-content: center;
+  &:before {
+    content: 'Xiaoting is Pretty';
+  }
+}
+
+.d-none {
+  display: none !important;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  font: 1.2rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  margin-right: 0.4rem;
+  cursor: pointer;
+
+  &:hover {
+    background: lightnen($dark-color, 20%);
+  }
+
+  &.btn-light {
+    @include set-background($light-color);
+    color: #333;
+
+    &:hover {
+      @include set-background($dark-color);
+    }
+  }
+
+  &.btn-primary {
+    @include set-background($primary-color);
+
+    &:hover {
+      outline: $primary-color 1px solid;
+    }
+  }
+  &.btn-danger {
+    @include set-background($danger-color);
+    &:hover {
+      outline: $danger-color 1px solid;
+    }
+  }
+}
+
+.components {
+  display: flex;
+
+  & > div:first-child {
+    flex: 1;
+  }
+  & > div:last-child {
+    flex: 2;
+  }
+}
+
+.border {
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+.events {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+}
+
+.d-flex {
+  display: flex !important;
+}

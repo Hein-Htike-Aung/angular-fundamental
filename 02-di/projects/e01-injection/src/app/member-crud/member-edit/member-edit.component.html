@@ -1,0 +1,46 @@
+<h2 class="text-primary">{{ getControl('name')?.value == 0 ? 'Add New':'Edit' }} Student</h2>
+
+<div [formGroup]="form" class="form">
+
+    <div class="form-group">
+        <input formControlName="name" type="text" placeholder="Enter Name">
+        <span *ngIf="showMessage(getControl('name'))" class="text-danger">
+            {{ getControl('name')?.errors!['required'] ? 'Enter Name':'' }}
+        </span>
+    </div>
+
+    <div formGroupName="contact">
+        <div class="form-group">
+            <input type="text" formControlName="phone" placeholder="Enter Phone">
+            <span *ngIf="showMessage(getControl('phone', 'contact'))" class="text-danger">               
+                {{ getControl('phone', 'contact')?.errors!['required'] ? 'Enter Phone Number': '' }}
+            </span>
+        </div>
+    
+        <div class="form-group">
+            <input type="text" formControlName="email" placeholder="Enter Email">
+            <span *ngIf="showMessage(getControl('email', 'contact'))" class="text-danger">       
+                {{ getControl('email', 'contact')?.errors!['email'] ? 'Incorrect Email Address':'Enter Email Address' }}
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="d-flex">
+            <div *ngFor="let role of roles">
+                <input type="radio" [id]="role" name="role" [value]="role" formControlName="role">
+                <label [for]="role" class="mr-1"> {{ role }}</label>
+            </div>
+        </div>
+        <span *ngIf="showMessage(getControl('role'))" class="text-danger">
+            {{ getControl('role')?.errors!['required'] ? 'Choose One Role':'' }}
+        </span>
+    </div>
+
+
+    <div class="form-group">
+        <button [routerLink]="['/member']" class="btn btn-light">Cancel</button>
+        <button (click)="add()" class="btn btn-primary">Submit</button>
+    </div>
+
+</div>
